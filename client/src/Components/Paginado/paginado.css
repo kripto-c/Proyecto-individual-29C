@@ -1,0 +1,43 @@
+body{
+    margin:0;
+    padding:0;
+}
+.paginado-container{
+  display: flex;
+  margin:auto;
+  background-color:rgb(20, 20, 20);
+  box-shadow:2px 2px 3px #000;
+  border-radius:5px;
+  margin-bottom:10px;
+}
+.paginado-ul{
+    width:100%;
+    background:rgba(0, 0, 0, 0.637);
+    display: flex;
+    justify-content:space-between;
+    list-style: none;
+    padding:10px;
+    border:none;
+}
+.number{
+     color:#fff;
+     font-size:20px;
+}
+
+.active-click{
+    background-color:rgb(255, 255, 255);
+    color:#000;
+}
+
+.paginado{
+     cursor: pointer;
+     padding:5px;
+}
+.number:hover{
+    background-color:rgb(255, 255, 255);
+    color:#000;
+}
+.number:active{
+    background: none;
+    color:#000;
+}

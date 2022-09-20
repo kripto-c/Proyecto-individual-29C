@@ -1,0 +1,66 @@
+.serchBar{
+    display: flex;
+    gap:10px;
+}
+/* .reload:placeholder-shown{
+
+ }
+  */
+
+.serchBar-input{
+    width:12rem;
+    height:2rem;
+    border: none;
+    border-radius:3px;
+    margin:2px;
+    background-color:#666;
+    color:#fff;
+    font-size:18px;
+}
+
+.serchBar-input:focus{
+    background-image:url("../../images/loading2.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+
+.input-nofound:placeholder-shown{
+    color:rgb(150, 31, 31);
+    border:1px solid red;
+    outline: none;
+    background-image: none;
+}
+
+
+.serchBar-button{
+   width:4.5rem;
+   height:2.3rem;
+   background-color:rgba(22, 71, 206, 0.959);
+   color: #fff;
+   font-weight: bolder;
+   border: none;
+   border-radius:5px;
+   box-shadow:1px 2px 2px rgb(57, 69, 180);
+}
+
+
+
+.serchBar-button:hover{
+    background-color:rgba(22, 71, 206, 0.781);
+    cursor: pointer;
+}
+.serchBar-button:active{
+    box-shadow:none;
+}
+
+.disable-button{
+    background-color:rgba(22, 71, 206, 0.781);
+    cursor: pointer;
+}
+
+.disable-button:active{
+    background-color:rgba(22, 71, 206, 0.781);
+    cursor: pointer;
+    box-shadow:1px 2px 2px rgb(57, 69, 180);
+}

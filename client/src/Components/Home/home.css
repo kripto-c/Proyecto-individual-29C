@@ -1,0 +1,149 @@
+.filter-container{
+  display: flex;
+  flex-direction: column;
+  background-color:rgb(20, 20, 20);
+  padding:5px;
+  position:fixed;
+  gap:10px;
+  width:50%;
+  min-width: 350px;
+  position: relative;
+  top:-37px;  
+}
+
+a{
+  text-decoration: none;
+}
+
+.home-fondo{
+  display: flex;
+  flex-direction: column;
+}
+.home-title{
+      color:#fff;
+      text-shadow: 5px 5px 5px rgb(52, 119, 243);
+      font-size:40px;
+      margin-top:4rem;
+      animation-name: title;
+      animation-duration: 3s;
+}
+
+    
+@keyframes title {
+  0% {
+      opacity:0;      
+  }
+  100% {
+       opacity: 1;
+  }
+}
+.container-cards{
+   display: flex;
+   flex-direction: row;
+}
+
+.select-container{
+  width:30vh;
+  padding:0.75em;
+  border: none;
+  background-color:rgba(22, 71, 206, 0.959);
+  border:1px solid #fff;
+  border-radius:3px;
+  color:#fff;
+  font-size:15px;
+  font-weight: bolder;
+  margin:5px;
+}
+
+.select-container:hover{
+  cursor: pointer;
+  background-color:rgba(20, 20, 20, 0.726);
+}
+
+.close{
+   align-self: flex-end;
+   background-color: rgb(175, 40, 40);
+   border: none;
+   color:#fff;
+   border-radius:3px;
+}
+
+.close:hover{
+   cursor: pointer;
+   background-color:red;
+}
+
+
+
+.buton_filtro{
+    width:9rem;
+    align-self: center;
+    padding:15px;
+    background-color:rgba(22, 71, 206, 0.959);
+    color: #fff;
+    font-weight: bolder;
+    border: none;
+    border-top:1px solid #fff ;
+    border-radius:5px;
+    box-shadow:1px 2px 3px rgb(4, 61, 252);
+    position:relative;
+    top:-40px;
+}
+
+.buton_filtro:hover{
+  background-color:rgba(22, 71, 206, 0.644);
+  cursor: pointer;
+}
+.buton_filtro:active{
+  box-shadow:none;
+  border:none;
+}
+
+.disable{
+  background-color:rgba(84, 114, 196, 0.753);
+  box-shadow:none;
+  border:none;
+}
+.disable:hover{
+  background-color:rgba(84, 114, 196, 0.753);
+}
+
+.nav{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:99.3%;
+  animation-name: ulrHome;
+  animation-duration: 2s;
+  animation-iteration-count:initial;
+  border: none;
+}
+
+.nav-filters{
+  height:16.5vh;
+  background-color:rgba(0, 0, 0, 0.568) ;
+  box-shadow: 5px 3px 5px #000;
+  border-radius: 0 0 10px;
+}
+
+.button-top{
+  position:fixed;
+  bottom:1rem;
+  right:0.5rem;
+  width:2.7rem;
+  height:1vh;
+  padding:20px;
+  border-radius:5px;
+  background: none;
+  border:none;
+  background-image: url("../../images/arrowtop.png");
+  filter: drop-shadow(1px 3px 2px rgb(4, 61, 252));
+  background-position:center;
+  background-size: contain;
+  object-fit: contain;
+}
+
+.button-top:hover{
+  filter: drop-shadow(1px 3px 3px #fff);
+  cursor: pointer;
+}

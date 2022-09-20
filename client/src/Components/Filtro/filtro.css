@@ -1,0 +1,17 @@
+
+.classSelectFilt{
+      width:30vh;
+      color:#fff;
+      margin:5px;
+      font-weight:bolder;
+      font-size:15px;
+      border-radius:4px;
+      padding:0.75em;
+      background-color:rgba(13, 70, 228, 0.959);
+      border:1px solid #fff;
+    }
+
+.classSelectFilt:hover{
+       cursor: pointer;
+       background:rgba(56, 55, 55, 0.514);
+}
