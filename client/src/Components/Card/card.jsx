@@ -1,11 +1,28 @@
 import React from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { confirm } from "react-confirm-box"
+import { deletBreeds, filterCreated, getBreeds } from "../../redux/actions";
 import cardStyle from "./card.css"
 
-export default function Card({id, name,image, temperament, weigth_min, weigth_max}) {
+export default function Card({id, link,name,image, temperament, weigth_min, weigth_max, onclick}) {
+
+async function handlerClick(id, name) {
+   const responds = await confirm(`surely he wants to eliminate the breed ${name}`);
+     if(responds) {
+      dispatch(deletBreeds(id));
+      await dispatch(getBreeds());
+      dispatch(filterCreated("Delete"));
+     }
+ }
+
+
+   const dispatch = useDispatch()
+   
     return(
-        <div className="card">
-          <Link to={`/home/${id}`}>
+        <div className="card" onClick={async ()=> onclick ? handlerClick(id, name) : ""}>
+          <Link to={link ? `/${link}/${id}`: ""}>
           <div className="card-head">
           <h3 className="card-title">{name}</h3>
           <img src={image ? image : "https://i.pinimg.com/originals/90/8c/10/908c1034a3199e94f49d3ed7715a8a65.jpg"} alt={name} className="card-img"/> 

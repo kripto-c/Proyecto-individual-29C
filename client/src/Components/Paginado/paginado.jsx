@@ -12,12 +12,10 @@ export default function Paginado({breedsPerPage, allBreds, paginado, dispatch, a
      for (let i = 1; i <= Math.ceil(allBreds / breedsPerPage); i++) {
          pageNumber.push(i)        
      }
-  
-function handlerACtiveSyleClick(e, num){
-    if (e.target.text == num) {
+
+function handlerACtiveSyleClick(num){
         setActive(num); 
         dispatch(GetNumPag(num))
-    }
 }   
 
 
@@ -27,7 +25,7 @@ function handlerACtiveSyleClick(e, num){
                {
                 pageNumber && pageNumber.map(num => {
                     return(
-                        <li className={`number ${active == num ? "active-click" : "" }`} key={num} onClick={(e)=> handlerACtiveSyleClick(e,num)}>
+                        <li className={`number ${active == num ? "active-click" : "" }`} key={num} onClick={()=> handlerACtiveSyleClick(num)}>
                             <a onClick={()=> paginado(num)}
 
                           className={`paginado`}>{num}</a>

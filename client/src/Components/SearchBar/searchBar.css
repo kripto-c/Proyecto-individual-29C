@@ -30,6 +30,12 @@
     border:1px solid red;
     outline: none;
     background-image: none;
+    animation-name: title;
+    animation-iteration-count: initial;
+    animation-duration:0.1s;
+}
+.input-nofound:focus{
+     border:1px solid blue;
 }
 
 
@@ -44,8 +50,6 @@
    box-shadow:1px 2px 2px rgb(57, 69, 180);
 }
 
-
-
 .serchBar-button:hover{
     background-color:rgba(22, 71, 206, 0.781);
     cursor: pointer;
@@ -56,7 +60,9 @@
 
 .disable-button{
     background-color:rgba(22, 71, 206, 0.781);
-    cursor: pointer;
+}
+.disable-button:hover{
+     cursor:no-drop;
 }
 
 .disable-button:active{

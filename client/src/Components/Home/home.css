@@ -126,6 +126,26 @@ a{
   border-radius: 0 0 10px;
 }
 
+.button-clear{
+  position:fixed;
+  bottom:1rem;
+  left:0.5rem;
+  width:4.5rem;
+  height:10vh;
+  border-radius:5px;
+  color:#fff;
+  background-color:rgba(15, 14, 14, 0.788);
+  font-size:16px;
+  font-weight:600;
+  padding:10px;
+  border-radius:150px;
+  box-shadow:3px 2px 4px #000;
+}
+.button-clear:hover{
+  background-color:rgba(15, 14, 14, 0.356);
+   cursor: pointer;
+}
+
 .button-top{
   position:fixed;
   bottom:1rem;

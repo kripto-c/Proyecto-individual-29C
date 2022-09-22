@@ -94,3 +94,10 @@ export function GetNumPag(num) {
          type:"GET_NUM_PAG", payload:num
       }
 }
+
+export function deletBreeds(id) {
+     return async function() {
+           const data = await axios.get(`http://localhost:3001/breedsDelete/${id}`)
+          return data;
+     }
+}

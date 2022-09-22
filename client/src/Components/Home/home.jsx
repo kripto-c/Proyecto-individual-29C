@@ -65,6 +65,11 @@ function onClickUp() {
      scroll.scrollTo(false, scrollType);
 }
 
+function reload(e) {
+    e.preventDefault()
+    dispatch(getBreeds())
+}
+
   return(
      <div className="home-fondo">
               {/* nav */}
@@ -116,13 +121,16 @@ function onClickUp() {
    
                        {/* Cards */}
             {
-             currentBreeds.length !== 0 && <Cards breeds={currentBreeds}  />
+             currentBreeds.length !== 0 && <Cards breeds={currentBreeds} link={"home"} />
             }
           
             {/* button arrow */}
         {   
-           all.length > 0 && <button onClick={()=> onClickUp()}className="button-top"></button>
+           all.length > 0 && 
+             <button onClick={()=> onClickUp()}className="button-top"></button>
         }
+        <button onClick={(e)=> reload(e)} className="button-clear">Clear filters</button>            
+
     </div>
   )
  

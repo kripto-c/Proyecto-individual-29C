@@ -43,7 +43,16 @@ function rootReducer(state=initialState, action) {
             }
         case "FILTER_CREATE":
             const allBreeds2  = state.allBreeds;
-            const createdFilter = action.payload === 'Created' ? allBreeds2.filter(el=> el.createdInDb === true ) : allBreeds2.filter(el=> !el.createdInDb)
+            let createdFilter;
+            // const createdFilter = action.payload === 'Created' ? allBreeds2.filter(el=> el.createdInDb === true ) : allBreeds2.filter(el=> !el.createdInDb)
+            if (action.payload === "Created" && allBreeds2.some(el => el.createdInDb == true)) {
+                createdFilter =allBreeds2.filter(el=> el.createdInDb === true ); 
+            }else if (action.payload === "Delete") {
+                createdFilter =allBreeds2.filter(el=> el.createdInDb === true );
+            }else{
+               createdFilter = allBreeds2.filter(el=> !el.createdInDb);
+            }
+            
             return{
                 ...state, breeds:action.payload === "All" ? state.allBreeds : createdFilter
             }
@@ -97,10 +106,10 @@ function rootReducer(state=initialState, action) {
               return{
                 ...state, errors:action.payload
               }        
-        case "POST_BREEDS":
-            return{
-                ...state
-            } 
+        // case "POST_BREEDS":
+        //     return{
+        //         ...state
+        //     } 
         case "GET_DETAILS":
             return{
                 ...state,
@@ -110,7 +119,8 @@ function rootReducer(state=initialState, action) {
             return{
                 ...state,
                 numPag:action.payload
-            }     
+            }
+       
         default:
              return state; 
     }

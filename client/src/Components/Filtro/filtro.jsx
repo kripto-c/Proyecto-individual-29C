@@ -6,6 +6,8 @@ import { useEffect } from "react";
 
 export default function Filters({setCurrentPage}){
 const allTemperaments = useSelector(state => state.temperaments);
+const allBreeds = useSelector(state => state.allBreeds);
+const findBreedsDb = allBreeds.some(el => el.createdInDb === true);
 const dispatch = useDispatch();
 
 useEffect(()=>{
@@ -21,6 +23,9 @@ useEffect(()=>{
 
    function handleFiltreCreate(e) {
     e.preventDefault();
+     if (!findBreedsDb && e.target.value === "Created") {
+         alert("there are no breeds created")
+     }
     dispatch(filterCreated(e.target.value))
 }
 

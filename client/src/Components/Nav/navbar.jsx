@@ -10,7 +10,10 @@ export default function Navbar(){
             <SearchBar />
              <div className="container-link">
              <Link to="/create_breed_dog"><h3 className="link-nav">Create Breed</h3></Link>
-             <Link to="/about"><h3 className="link-nav">About developer</h3></Link>
+             <Link to="/home/breedsDelete">
+                <h3 className="link-nav">Delete Breed</h3>
+             </Link>
+             <Link to="/home/about"><h3 className="link-nav">About </h3></Link>
              </div>
         </div>
     );

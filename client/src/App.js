@@ -6,6 +6,8 @@ import Home from './Components/Home/home';
 import BreedsCreate from './Components/BreedsCreate/breedsCreate';
 import PageNoFound from './Components/PagNoFound/PagnoFound';
 import Detail from './Components/Detail/detail';
+import About from './Components/About/about';
+import DeleteBreeds from './Components/deleteBreeds/deleteBreeds';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
     <Route path='/home' element={ <Home />}/>
     <Route path='/create_breed_dog' element={<BreedsCreate />}/>
     <Route path='/home/:id' element={<Detail/>} />
+    <Route path='/home/about' element={<About/>}/>
+    <Route path='/home/breedsDelete' element={ <DeleteBreeds />}/>
     <Route path='*' element={<PageNoFound />}/>
     </Routes>
     </div>
