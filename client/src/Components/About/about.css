@@ -4,15 +4,18 @@
    align-items: center;
    flex-direction: column;
    height:100vh;
+   background-image:url(https://i.pinimg.com/originals/fa/c5/10/fac510db7a07e258fa398b1d166b0599.png);
+   background-repeat: no-repeat;
+   background-size:100% 100%;
    animation-name: title;
    animation-duration: 3s;
 }
 
 .card-about{
       width:76%;
-     background-color:rgba(0, 0, 0, 0.418);
+     background-color:rgba(0, 0, 0, 0.76);
      border-radius:10px;
-     height:75vh;
+     height:80vh;
      min-width:714px;
 }
 

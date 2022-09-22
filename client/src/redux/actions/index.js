@@ -2,14 +2,14 @@ import axios  from 'axios';
 
 export function getBreeds() {
     return async function(dispatch){
-          let json = await axios.get('http://localhost:3001/dogs');
+          let json = await axios.get('/dogs');
           return dispatch({type:"GET_BREEDS", payload:json.data})
     }
 }
 
 export function getTemperaments() {
     return async function (dispatch) {
-        let json = await axios.get('http://localhost:3001/temperaments');
+        let json = await axios.get('/temperaments');
         return dispatch({
             type: "GET_TEMPERAMENTS",
             payload: json.data,
@@ -46,7 +46,7 @@ export function orderWeigth(payload) {
 export function getNameBreeds(payload) {
     return async function (dispatch) {
          try {
-            let json  = await axios.get(`http://localhost:3001/dogs?name=${payload}`);
+            let json  = await axios.get(`/dogs?name=${payload}`);
             return dispatch({
                  type: "GET_NAME_BREEDS", payload: json.data
             })
@@ -61,7 +61,7 @@ export function getNameBreeds(payload) {
 
 export function postBreeds(payload){
      return async function(){
-            const data = await axios.post(`http://localhost:3001/dogs`, payload);
+            const data = await axios.post(`/dogs`, payload);
         return data;
     }
 }
@@ -70,7 +70,7 @@ export function postBreeds(payload){
 export function getDetail(id) {
      return async function(dispatch){
          try {
-           let json = await axios.get(`http://localhost:3001/dogs/${id}`)
+           let json = await axios.get(`/dogs/${id}`)
            return dispatch({
            type:"GET_DETAILS",
            payload:json.data
@@ -97,7 +97,7 @@ export function GetNumPag(num) {
 
 export function deletBreeds(id) {
      return async function() {
-           const data = await axios.get(`http://localhost:3001/breedsDelete/${id}`)
+           const data = await axios.get(`/breedsDelete/${id}`)
           return data;
      }
 }

@@ -16,7 +16,7 @@ async function getTemperaments(req, res) {
               where: {name: i}
             })
         });
-        res.send('cargado correctamente desde la api')        
+        res.send(dbTemperament)        
     }else{
         res.send(dbTemperament)
     } 
