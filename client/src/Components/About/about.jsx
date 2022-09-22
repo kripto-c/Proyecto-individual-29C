@@ -13,7 +13,7 @@ export default function About() {
             <div className="card-description">
                 <div className="card-text">
                 <h2 className="card-title">DogPedia</h2>
-                <p className="card-p">This SPA consumes data from an external API and uses the PostgressSQL database managed by Sequelize.
+        <p className="card-p">This SPA consumes data from an external API and uses the PostgressSQL database managed by Sequelize.
 Main characteristics of the project: <strong className="strong">Search bar, Temperaments and filters, controlled form for the creation of new dog breeds that can be saved as a new record in the database and a section for the elimination of the same.</strong></p>
                 </div>
                 <div className="card-tecnologi">

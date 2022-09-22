@@ -66,7 +66,7 @@ export default function validate(form){
 
             //   life_min
             if(form.life_span_min && form.life_span_min < 10){
-                errors.life_span_min ="the minimum average life span is 5 kilograms "
+                errors.life_span_min ="the minimum average life span is 10 years "
             }
             if(form.life_span_min && form.life_span_min.length > 3){
                 errors.life_span_min = "should not be more than 3 characters";
@@ -79,7 +79,7 @@ export default function validate(form){
 
             // life_max
             if(form.life_span_max && form.life_span_max > 20){
-                 errors.life_span_max = "the maximum average weight is 82 kilograms"
+                 errors.life_span_max = "the maximum average life span is 20 years"
             }
             if(form.life_span_max && form.life_span_max.length > 3){
                 errors.life_span_max = "should not be more than 3 characters ";
