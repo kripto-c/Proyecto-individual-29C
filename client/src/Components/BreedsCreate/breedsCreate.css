@@ -45,6 +45,7 @@
 .container-weight, .container-height, .container-life{
     display: flex;
     gap:10px;
+    width:55%;
 }
 label{
     margin:5px;
