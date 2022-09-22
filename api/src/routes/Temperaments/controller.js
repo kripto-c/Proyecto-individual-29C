@@ -1,12 +1,12 @@
 const { default: axios } = require('axios');
 const { Op } = require('sequelize');
 const { Temperament } = require('../../db');
-const { YOUR_API_KEY, api } = process.env;
+// const { YOUR_API_KEY, api } = process.env;
 
 async function getTemperaments(req, res) {
     const dbTemperament = await Temperament.findAll();
     if (dbTemperament.length <= 0 ) {
-        const  temperamentApi = await axios.get(`${api}?api_key=${YOUR_API_KEY}`);
+        const  temperamentApi = await axios.get(`https://api.thedogapi.com/v1/breeds`);
         const temperaments = temperamentApi.data.map(elem => elem.temperament);
         const temps = temperaments.toString().split(",");
         const responds = temps.filter(e=>  e !== "")         
