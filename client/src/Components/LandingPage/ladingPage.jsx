@@ -18,8 +18,11 @@ export default function LandigPage() {
       return(
       <div className="lading-fondo" style={{backgroundImage: `url(${img})`}}>
         <div className="lading-container">
-             <h1 className="lading-title">Dogs App</h1>
-             <p className="lading-descriptions">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis necessitatibus facilis provident officiis unde, fugit assumenda, iure porro quis aspernatur, neque impedit eaque enim animi facere? Inventore, perferendis. Ratione, sunt?</p>
+             <h1 className="lading-title">DogsPedia</h1>
+             <p className="lading-descriptions">it is a SPA that consumes data from a Rest Api, the App has its own database,
+that require certain types of information, the application has the functionality of
+ filter the information according to certain criteria, also having a functionality to create or eliminate dog breeds, offering the characteristics that they consider pertinent.
+For this I used all the known technologies in Henry's Bootcamp, which covers backend and frontend</p>
              <Link to="/home" className="lading-container-button" >
               <button className="lading-button">Get in</button>
               </Link>

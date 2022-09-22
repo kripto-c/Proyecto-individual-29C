@@ -110,7 +110,7 @@ function reload(e) {
            </div>
                    
                    {/* title */}
-        <h1 className="home-title">DOGPEDIA</h1>
+        <h1 className="home-title">DOGSPEDIA</h1>
          {/* <button onClick={e=> handleClick(e)}>Reload</button> */}
             
                     {/* paginado */}

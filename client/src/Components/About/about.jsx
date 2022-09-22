@@ -13,10 +13,8 @@ export default function About() {
             <div className="card-description">
                 <div className="card-text">
                 <h2 className="card-title">DogPedia</h2>
-                <p className="card-p">una SPA (Single Page Application) usando React JS en Front End y Node Js-Express en Back End. El diseño se realizó aplicando exclusivamente CSS: no librerías externas.
-                <br /><br />
-                Este SPA consume datos de una API externa  y utiliza la base de datos PostgressSQL administrada por Sequelize.
-Principales características del proyecto: <strong className="strong">Barra de búsqueda, Temperamentos y filtros, formulario controlado para la creación de nuevas razas de perro que se pueden guardar como nuevo registro en la base de datos y un apartado para la eliminacion de las mismas.</strong></p>
+                <p className="card-p">This SPA consumes data from an external API and uses the PostgressSQL database managed by Sequelize.
+Main characteristics of the project: <strong className="strong">Search bar, Temperaments and filters, controlled form for the creation of new dog breeds that can be saved as a new record in the database and a section for the elimination of the same.</strong></p>
                 </div>
                 <div className="card-tecnologi">
                     <div className="react-logo">React</div>
