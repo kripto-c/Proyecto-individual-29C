@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { getBreeds, orderAlphabetical, orderWeigth} from "../../redux/actions";
+import { getBreeds, orderAlphabetical, orderWeigth, GetNumPag} from "../../redux/actions";
 import Paginado from "../Paginado/paginado";
 import Filters from "../Filtro/filtro";
 import Navbar from "../Nav/navbar";
@@ -13,14 +13,14 @@ import { animateScroll as scroll} from "react-scroll";
 export default function Home() {
     const dispatch = useDispatch();
     //  llamada del estado breed
-    const allBreeds = useSelector(state=> state.breeds)
+    const allBreeds =  useSelector(state=> state.breeds)
       // llamado del estado numpage esto guardara el numero de pag del  la ultima que pagVisitada
-    const numPagState = useSelector(state => state.numPag);
+    let numPagState =  useSelector(state => state.numPag);
     //  filtramos las razas que esten seteadas en  null
     const all = allBreeds.filter(e=> e !== null)
  
     const [order, setOrder]= useState("");
-   const [currentPage, setCurrentPage] = useState(numPagState.length == 0 ? 1 : numPagState);
+   const [currentPage, setCurrentPage] = useState(numPagState  == 0  ? 1 : numPagState);
     const [breedsPerPage, setBreedsPerPage] = useState(8);
     const [activeFiltro, setActiveFiltro ] = useState(false)
   
@@ -42,8 +42,9 @@ export default function Home() {
 function handlerOrderAlphabetical(e) {
   e.preventDefault();
   dispatch(orderAlphabetical(e.target.value))
-  setCurrentPage(1);
   setOrder(`Ordenado ${e.target.value}`);
+  setCurrentPage(1);
+  dispatch(GetNumPag(0))
 }
 
         // disparador filtro de orden con peso
@@ -115,7 +116,7 @@ function reload(e) {
             
                     {/* paginado */}
          {  
-      all.length > 0 ? <Paginado breedsPerPage={breedsPerPage} allBreds={all.length} paginado={paginado} dispatch={dispatch} act={numPagState.length == 0 ? "": numPagState} /> : <Loading/>
+      all.length > 0 ? <Paginado breedsPerPage={breedsPerPage} allBreds={all.length} paginado={paginado} dispatch={dispatch} act={numPagState.length == 0 ? 0 : numPagState} /> : <Loading/>
              
            }
    

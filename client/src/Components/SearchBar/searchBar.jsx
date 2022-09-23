@@ -1,7 +1,7 @@
 import React from "react";
 import { useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getNameBreeds } from "../../redux/actions";
+import { getBreeds, getNameBreeds, GetNumPag } from "../../redux/actions";
 import serBarstyle from "./searchBar.css"
 
 export default function SearchBar(){
@@ -14,10 +14,12 @@ function handlerInputChange (e) {
      setName(e.target.value)
 }
 
-function handlerSubmit(e) {
+async function handlerSubmit(e) {
      e.preventDefault();
-     dispatch(getNameBreeds(name))
+    await dispatch(getNameBreeds(name))
+     // dispatch(GetNumPag(0))
      setName("");
+
 }
 
     return(
