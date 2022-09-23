@@ -52,6 +52,9 @@ function handleOrderByWeight(e){
   e.preventDefault();
   dispatch(orderWeigth(e.target.value));
   setOrder(`Ordenado ${e.target.value}`);
+  setCurrentPage(1);
+  dispatch(GetNumPag(0))
+
 };
 
   //  activado de menu de filtros
@@ -77,7 +80,7 @@ function reload(e) {
           
             <div className="nav">
             <div className="nav-filters">
-           <Navbar />
+           <Navbar setpage={setCurrentPage}/>
            {            
           activeFiltro && all.length > 0 ? 
          <>

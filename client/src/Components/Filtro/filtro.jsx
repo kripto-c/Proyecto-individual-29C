@@ -19,6 +19,7 @@ useEffect(()=>{
     function handleFilterTemperaments(e) {
         e.preventDefault();
         dispatch(filterBreeds(e.target.value))
+        setCurrentPage(1)
    }
 
    function handleFiltreCreate(e) {
@@ -27,6 +28,7 @@ useEffect(()=>{
          alert("there are no breeds created")
      }
     dispatch(filterCreated(e.target.value))
+    setCurrentPage(1)
 }
 
 
