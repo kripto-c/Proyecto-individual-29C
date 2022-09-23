@@ -41,13 +41,15 @@
 } */
 
 .card-p{
-    width:90%;
+    width:85%;
     margin: 0 auto;
-    padding:5px;
+    padding:10px;
     background-color:rgb(63, 62, 62);
     color:#fff;
     border-radius:5px;
-    line-height:1.6rem;
+    line-height:2rem;
+    font-size:18px;
+    font-weight:bold;
 }
 .strong{
     text-shadow:2px 3px 4px rgb(53, 65, 238);

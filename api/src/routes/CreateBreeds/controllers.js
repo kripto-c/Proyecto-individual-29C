@@ -1,16 +1,15 @@
 const { Breeds, Temperament} = require('../../db')
 const {  getAllBreeds } = require('../breeds/controllers')
 
-const height = []
-const weight =[]
-const life_span = [];
-
 async function createBread(req, res) {
   const { name, height_min, height_max, weight_min, weight_max, life_span_min, life_span_max, image, temperament, createInDb } = req.body;
-    if(!height||!weight||!life_span||!temperament) res.status(401).json({data:'missing data'});
+    // if(!height||!weight||!life_span||!temperament) res.status(401).json({data:'missing data'});
 
 
-  
+    let height = []
+    let weight =[]
+    let life_span = [];
+
    if(height_min && height_max && weight_min && weight_max && life_span_min && life_span_max){
        height.push(height_min, height_max);
        weight.push(weight_min, weight_max);

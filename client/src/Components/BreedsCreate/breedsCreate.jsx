@@ -68,7 +68,7 @@ async function handlerSubmit(e) {
       return
    }else{
   dispatch(postBreeds(input))
-    const redirect = await confirm(`the breed ${input.name} was added!..\n right you want to go home?`);
+    const redirect = await confirm(`the breed ${input.name} was successfully added.. do you want to go home?`);
     if (redirect) {
         setInput({
             name:"",
@@ -197,10 +197,6 @@ if (input.success) {
         <button type="submit" className={!button ? "form-button ": "disable-button-form" } disabled={button}>Create Breed</button>
             </form>
 
-            {/* <div className="container-errors">
-
-
-            </div> */}
             <Link to='/home'><button className={`form-back`}>Back Home</button></Link>
           </div>
        );
