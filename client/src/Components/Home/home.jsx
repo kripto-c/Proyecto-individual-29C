@@ -72,6 +72,8 @@ function onClickUp() {
 function reload(e) {
     e.preventDefault()
     dispatch(getBreeds())
+    setCurrentPage(1)
+    dispatch(GetNumPag(0))
 }
 
   return(
