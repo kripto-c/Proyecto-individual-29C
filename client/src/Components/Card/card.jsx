@@ -2,19 +2,19 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { confirm } from "react-confirm-box"
+// import { confirm } from "react-confirm-box"
 import { deletBreeds, filterCreated, getBreeds } from "../../redux/actions";
 import cardStyle from "./card.css"
 
 export default function Card({id, link,name,image, temperament, weigth_min, weigth_max, onclick}) {
 
 async function handlerClick(id, name) {
-   const responds = await confirm(`surely he wants to eliminate the breed ${name}`);
-     if(responds) {
+  //  const responds = await confirm(`surely he wants to eliminate the breed ${name}`);
+    //  if(responds) {
       dispatch(deletBreeds(id));
       await dispatch(getBreeds());
       dispatch(filterCreated("Delete"));
-     }
+    //  }
  }
 
 

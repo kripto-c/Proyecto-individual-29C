@@ -11,13 +11,26 @@ body{
   margin-bottom:10px;
 }
 .paginado-ul{
-    width:100%;
+    /* width:100%; */
     background:rgba(0, 0, 0, 0.637);
     display: flex;
     justify-content:space-between;
     list-style: none;
     padding:10px;
     border:none;
+}
+
+@media (max-width:602px){
+   .paginado-container{
+       background: none;
+       box-shadow: none;
+   }
+    .paginado-ul{
+        flex-direction: column;
+        position:absolute;
+        right: 1rem;
+        border-radius:5px;
+    }
 }
 .number{
      color:#fff;

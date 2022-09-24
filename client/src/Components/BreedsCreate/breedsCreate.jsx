@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Navigate } from "react-router-dom";
-import { confirm } from "react-confirm-box"
+// import { confirm } from "react-confirm-box"
 import { getBreeds, getTemperaments, postBreeds } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
@@ -68,8 +68,9 @@ async function handlerSubmit(e) {
       return
    }else{
   dispatch(postBreeds(input))
-    const redirect = await confirm(`the breed ${input.name} was successfully added.. do you want to go home?`);
-    if (redirect) {
+  dispatch(getBreeds())
+    // const redirect = await confirm(`the breed ${input.name} was successfully added.. do you want to go home?`);
+    // if (redirect) {
         setInput({
             name:"",
             height_min:"",
@@ -82,22 +83,22 @@ async function handlerSubmit(e) {
             temperament:[],
             success:true
         })
-    dispatch(getBreeds())
-    }else{
-        setInput({
-            name:"",
-            height_min:"",
-            height_max:"",
-            weight_min:"",
-            weight_max:"",
-            life_span_min:"",
-            life_span_max:"",
-            image:"",
-            temperament:[],
-            success:false
-        })
+  
+    // }else{
+    //     setInput({
+    //         name:"",
+    //         height_min:"",
+    //         height_max:"",
+    //         weight_min:"",
+    //         weight_max:"",
+    //         life_span_min:"",
+    //         life_span_max:"",
+    //         image:"",
+    //         temperament:[],
+    //         success:false
+    //     })
 
-    }
+    // }
   }
 
 }

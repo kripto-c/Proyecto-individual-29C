@@ -6,7 +6,6 @@
   position:fixed;
   gap:10px;
   width:50%;
-  min-width: 350px;
   position: relative;
   top:-37px;  
 }
@@ -23,7 +22,7 @@ a{
       color:#fff;
       text-shadow: 5px 5px 5px rgb(52, 119, 243);
       font-size:40px;
-      margin-top:4rem;
+      margin-top:2rem;
       animation-name: title;
       animation-duration: 3s;
 }
@@ -89,7 +88,11 @@ a{
     position:relative;
     top:-40px;
 }
-
+@media (min-width:756px){
+  .buton_filtro2{
+    display: none;
+  }
+}
 .buton_filtro:hover{
   background-color:rgba(22, 71, 206, 0.644);
   cursor: pointer;
