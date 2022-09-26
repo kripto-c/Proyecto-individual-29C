@@ -57,7 +57,12 @@ body{
 }
 
 .classButton1, .classButton2{
-    background-color:#1645c6cb;
+    background-color:#1645C6;
+    height:58%;
+    background-size:100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width:40px;
     border:none;
     padding: 5px;
     height:55%;
@@ -66,7 +71,15 @@ body{
     color:#fff;
     font-size:16px;
     font-weight:900;
-}
+ }
+ 
+ .classButton1{
+   background-image:url('../../images/izq-arrow.png');
+ }
+ .classButton2{
+   background-image:url('../../images/der-arrow.png');
+ }
+ 
 
 .classButton1:hover, .classButton2:hover{
     background-color:#1645c665;

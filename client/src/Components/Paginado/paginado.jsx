@@ -19,7 +19,7 @@ function handlerACtiveSyleClick(num){
      return(
            <nav className="paginado-container">
          <div className='classDivButton' >
-         <button className='classButton1' onClick={()=> previousPage()} >{'<<'}</button>
+         <button className='classButton1' onClick={()=> previousPage()} ></button>
          </div>
              <ul className="paginado-ul">
                {
@@ -35,7 +35,7 @@ function handlerACtiveSyleClick(num){
                }
              </ul>
              <div className='classDivButton'>
-         <button className='classButton2' onClick={()=>followingPage()} >{'>>'}</button>
+         <button className='classButton2' onClick={()=>followingPage()} ></button>
       
          </div>
            </nav>

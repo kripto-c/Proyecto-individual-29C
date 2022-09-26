@@ -27,7 +27,10 @@ export default function Home() {
    const indexLastBreed = currentPage * breedsPerPage;//indice del el ultimo breeds
    const indexOfFirstBreed = indexLastBreed - breedsPerPage;// indice del primer breeds
    const currentBreeds =  allBreeds.slice(indexOfFirstBreed, indexLastBreed);
+
+      //  limite para no avanzar mas button
    const limitForPage = Math.ceil(allBreeds.length/breedsPerPage);
+
    const [active, setActive] = useState(numPagState  ==  0 ? 1 : numPagState );
 
 
@@ -141,12 +144,12 @@ function previousPage(){
             
                     {/* paginado */}
         <div className="container-pag-responsive">
-        <button onClick={()=> previousPage()} className='classButton1'>{'<<'}</button>
+        <button onClick={()=> previousPage()} className='classButton1'></button>
         <div className="page-text">
         <h3 className='classH3' >{currentPage}</h3>
          <h3 className='classH3' >{'/ ' + limitForPage }</h3>
         </div>
-         <button onClick={()=>followingPage()} className='classButton2'>{'>>'}</button>
+         <button onClick={()=>followingPage()} className='classButton2'></button>
         </div>
 
          {  
