@@ -26,6 +26,9 @@ export default function  BreedsCreate(){
         temperament:[],
         success:false
        })
+            //  estado de ventana confirm
+       const [confirm, setConfirm] = useState(false);
+ 
 
         //    manejo de errores
        const [errors, setErrors] = useState({})
@@ -67,38 +70,9 @@ async function handlerSubmit(e) {
       alert(`the breed ${input.name} already exists, you cannot add it`)
       return
    }else{
-  dispatch(postBreeds(input))
+  await dispatch(postBreeds(input))
   dispatch(getBreeds())
-    // const redirect = await confirm(`the breed ${input.name} was successfully added.. do you want to go home?`);
-    // if (redirect) {
-        setInput({
-            name:"",
-            height_min:"",
-            height_max:"",
-            weight_min:"",
-            weight_max:"",
-            life_span_min:"",
-            life_span_max:"",
-            image:"",
-            temperament:[],
-            success:true
-        })
-  
-    // }else{
-    //     setInput({
-    //         name:"",
-    //         height_min:"",
-    //         height_max:"",
-    //         weight_min:"",
-    //         weight_max:"",
-    //         life_span_min:"",
-    //         life_span_max:"",
-    //         image:"",
-    //         temperament:[],
-    //         success:false
-    //     })
-
-    // }
+  setConfirm(true)
   }
 
 }
@@ -112,10 +86,53 @@ function deleteListTemps(e) {
   })
 }
 
+function handlerConfirm(e) {
+     if (e == "yes") {
+           setInput({
+            name:"",
+            height_min:"",
+            height_max:"",
+            weight_min:"",
+            weight_max:"",
+            life_span_min:"",
+            life_span_max:"",
+            image:"",
+            temperament:[],
+            success:true
+        })
+     }else{
+      setInput({
+        name:"",
+        height_min:"",
+        height_max:"",
+        weight_min:"",
+        weight_max:"",
+        life_span_min:"",
+        life_span_max:"",
+        image:"",
+        temperament:[],
+        success:false
+    })
+       setConfirm(false)
+     }
+}
+
+
+
 if (input.success) {
     return <Navigate to={`/home`} replace />
 }else  return(
           <div className="form-container">
+             {
+              confirm && <div className="confirm-container">
+               <h3>{`The breed ${input.name} was successfully added`}
+                     <br />{`do you want to go home?`}</h3>
+                   <div className="buttons-comfirm">
+                      <button className="comfirm-button" onClick={()=> handlerConfirm("yes")}>Yes</button>
+                      <button className="comfirm-button" onClick={()=> handlerConfirm("no")}>No</button>
+                   </div>
+              </div>
+             }
             <h1 className="form-title">Create breed</h1> 
             <form  onSubmit={e=> handlerSubmit(e)} className="formulario">
                  <div className="container-input c-input-name">

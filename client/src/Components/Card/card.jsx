@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 // import { confirm } from "react-confirm-box"
@@ -7,20 +7,38 @@ import { deletBreeds, filterCreated, getBreeds } from "../../redux/actions";
 import cardStyle from "./card.css"
 
 export default function Card({id, link,name,image, temperament, weigth_min, weigth_max, onclick}) {
+     const [confirm, setConfirm] = useState(false);
+
 
 async function handlerClick(id, name) {
-  //  const responds = await confirm(`surely he wants to eliminate the breed ${name}`);
-    //  if(responds) {
-      dispatch(deletBreeds(id));
-      await dispatch(getBreeds());
-      dispatch(filterCreated("Delete"));
-    //  }
+        setConfirm(true)
  }
+
+ async function handlerConfirm(e) {
+  if (e == "yes") {
+    dispatch(deletBreeds(id));
+    await dispatch(getBreeds());
+    dispatch(filterCreated("Delete"));
+  }else{
+    setConfirm(false)
+  }
+}
 
 
    const dispatch = useDispatch()
    
     return(
+      <>
+         {
+           confirm && <div className="confirm-container">
+               <h3>{`surely he wants to eliminate the breed ${name}`}</h3>
+                   <div className="buttons-comfirm">
+                      <button className="comfirm-button" onClick={()=> handlerConfirm("yes")}>Yes</button>
+                      <button className="comfirm-button" onClick={()=> handlerConfirm("no")}>No</button>
+                   </div>
+              </div>
+         }
+
         <div className="card" onClick={async ()=> onclick ? handlerClick(id, name) : ""}>
           <Link to={link ? `/${link}/${id}`: ""}>
           <div className="card-head">
@@ -42,6 +60,7 @@ async function handlerClick(id, name) {
            </div>
           </Link>
        </div>
+      </>
     );
    }
    

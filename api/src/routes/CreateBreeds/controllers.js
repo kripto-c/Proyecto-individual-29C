@@ -10,11 +10,9 @@ async function createBread(req, res) {
     let weight =[]
     let life_span = [];
 
-   if(height_min && height_max && weight_min && weight_max && life_span_min && life_span_max){
-       height.push(height_min, height_max);
-       weight.push(weight_min, weight_max);
-       life_span.push(life_span_min, life_span_max)
-   }
+    height.push(height_min, height_max);
+    weight.push(weight_min, weight_max);
+    life_span.push(life_span_min, life_span_max)
 
     try {
 //    vilidacionDeData
