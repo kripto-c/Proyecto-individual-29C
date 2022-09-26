@@ -27,6 +27,9 @@ export default function Home() {
    const indexLastBreed = currentPage * breedsPerPage;//indice del el ultimo breeds
    const indexOfFirstBreed = indexLastBreed - breedsPerPage;// indice del primer breeds
    const currentBreeds =  allBreeds.slice(indexOfFirstBreed, indexLastBreed);
+   const limitForPage = Math.ceil(allBreeds.length/breedsPerPage);
+   const [active, setActive] = useState(numPagState  ==  0 ? 1 : numPagState );
+
 
    const paginado = (pageNumber)=>{
      setCurrentPage(pageNumber);
@@ -76,6 +79,20 @@ function reload(e) {
     dispatch(GetNumPag(0))
 }
 
+function followingPage(){
+  if(currentPage !== limitForPage)
+  setCurrentPage(currentPage + 1);
+  setActive(currentPage + 1);
+  dispatch(GetNumPag(currentPage + 1));
+}
+function previousPage(){
+  if(currentPage !== 1)
+  setCurrentPage(currentPage - 1)
+  setActive(currentPage - 1);
+  dispatch(GetNumPag(currentPage - 1))
+}
+
+
   return(
      <div className="home-fondo">
               {/* nav */}
@@ -123,8 +140,17 @@ function reload(e) {
          {/* <button onClick={e=> handleClick(e)}>Reload</button> */}
             
                     {/* paginado */}
+        <div className="container-pag-responsive">
+        <button onClick={()=> previousPage()} className='classButton1'>{'<<'}</button>
+        <div className="page-text">
+        <h3 className='classH3' >{currentPage}</h3>
+         <h3 className='classH3' >{'/ ' + limitForPage }</h3>
+        </div>
+         <button onClick={()=>followingPage()} className='classButton2'>{'>>'}</button>
+        </div>
+
          {  
-      all.length > 0 ? <Paginado breedsPerPage={breedsPerPage} allBreds={all.length} paginado={paginado} dispatch={dispatch} act={numPagState.length == 0 ? 0 : numPagState} /> : <Loading/>
+      all.length > 0 ? <Paginado breedsPerPage={breedsPerPage} allBreds={all.length} paginado={paginado} dispatch={dispatch} act={numPagState.length == 0 ? 0 : numPagState} previousPage={previousPage} followingPage={followingPage} active={active} setActive={setActive}/> : <Loading/>
              
            }
    

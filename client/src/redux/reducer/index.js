@@ -7,6 +7,8 @@ const initialState = {
     numPag:[],
 }
 
+// Esta es una característica asociada a las tablas, es decir, cada tabla tendrá su llave primaria para que cada tabla tenga una manera inequívoca de hacer referencia a todos y cada uno de los registros que contienen
+
 
 function rootReducer(state=initialState, action) {
     switch (action.type) {
@@ -106,10 +108,7 @@ function rootReducer(state=initialState, action) {
               return{
                 ...state, errors:action.payload
               }        
-        // case "POST_BREEDS":
-        //     return{
-        //         ...state
-        //     } 
+  
         case "GET_DETAILS":
             return{
                 ...state,

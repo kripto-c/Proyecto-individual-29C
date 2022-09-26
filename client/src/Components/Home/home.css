@@ -170,3 +170,34 @@ a{
   filter: drop-shadow(1px 3px 3px #fff);
   cursor: pointer;
 }
+
+.container-pag-responsive{
+   display: none;
+
+}
+
+
+
+@media (max-width:713px){
+  .container-pag-responsive{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:40%;
+    margin: 0 auto;
+    color:#fff;
+    background-color:rgba(0, 0, 0, 0.644);
+    border:10px;
+} 
+.page-text{
+  display: flex;
+}
+.classButton1, .classButton2{
+  height:10vh;
+}
+.classH3{
+  padding:5px;
+  background-color:rgba(0, 0, 0, 0.575);
+  border-radius:2px;
+}
+}

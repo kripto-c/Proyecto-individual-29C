@@ -6,6 +6,13 @@ export function getBreeds() {
           return dispatch({type:"GET_BREEDS", payload:json.data})
     }
 }
+// export function getBreeds() {
+//      return function(dispatch) {
+//         return axios.get('/dogs').then(data=> {
+//             return dispatch({type:"GET_BREEDS", payload:data.data})
+//         }).catch(err=> {return err})
+//      }
+// }
 
 export function getTemperaments() {
     return async function (dispatch) {
