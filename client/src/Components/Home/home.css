@@ -193,6 +193,7 @@ a{
 }
 .classButton1, .classButton2{
   height:10vh;
+  background-size:100% 70%;
 }
 .classH3{
   padding:5px;

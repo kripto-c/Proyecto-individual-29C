@@ -57,7 +57,7 @@ body{
 }
 
 .classButton1, .classButton2{
-    background-color:#1645C6;
+    background-color:rgba(28, 76, 231, 0.568);
     height:58%;
     background-size:100%;
     background-repeat: no-repeat;
@@ -82,6 +82,6 @@ body{
  
 
 .classButton1:hover, .classButton2:hover{
-    background-color:#1645c665;
+    opacity:0.8;
     cursor: pointer;
 }
