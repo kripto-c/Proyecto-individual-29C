@@ -30,13 +30,15 @@ async function handlerClick(id, name) {
     return(
       <>
          {
-           confirm && <div className="confirm-container">
+           confirm && <>
+           <div className="confirm-container">
                <h3>{`surely he wants to eliminate the breed ${name}`}</h3>
                    <div className="buttons-comfirm">
                       <button className="comfirm-button" onClick={()=> handlerConfirm("yes")}>Yes</button>
                       <button className="comfirm-button" onClick={()=> handlerConfirm("no")}>No</button>
                    </div>
               </div>
+           </>
          }
 
         <div className="card" onClick={async ()=> onclick ? handlerClick(id, name) : ""}>
