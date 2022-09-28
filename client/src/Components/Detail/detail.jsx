@@ -58,7 +58,8 @@ else return(
                  </div>
                  <div className="detail-life">
                   <h4>Life Span</h4>
-                 <p>{myBreed[0].life_span}</p>
+                 {myBreed[0].life_span.min && <p>Min {myBreed[0].life_span.min} Years</p>}
+                 {myBreed[0].life_span.max && <p>Max {myBreed[0].life_span.max} Years</p>}
                  </div>
                 </div>
 

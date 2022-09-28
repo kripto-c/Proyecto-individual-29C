@@ -10,8 +10,9 @@ async function getInfoApi() {
     let height_data = e.height.metric.split("-");
     let weight_space = e.weight.metric.replace(/ /g, '');
     let [wmin, wmax ] = weight_space.split("-");
-    // let weight_min = weight_data[0]; 
-    // let weight_max = weight_data[1]; 
+    let life = e.life_span.replace("years", "");
+    let life_span_min = life.split("-")[0]; 
+   let life_span_max = life.split("-")[1]; 
 
     return {
       id: e.id,
@@ -19,7 +20,7 @@ async function getInfoApi() {
       height:{min:height_data[0] , max:height_data[1]},
       weight:{min: !isNaN(wmin) ? wmin : 0, max:!isNaN(wmax) ? wmax : 0},
       temperament: e.temperament,
-      life_span:e.life_span,
+      life_span:{min: life_span_min, max: life_span_max},
       img: e.image.url,
     };
   });
@@ -42,7 +43,7 @@ async function getDBInfo() {
           name:e.name,
           height:{min:e.height[0], max:e.height[1]},
           weight:{min:e.weight[0] , max:e.weight[1]},
-          life_span:`${e.life_span[0]} - ${e.life_span[1]} years`,
+          life_span:{min:e.life_span[0], max:e.life_span[1]},
           temperament:e.temperaments.map(e => e.name ),
           img:e.image,
           createdInDb:e.createdInDb
