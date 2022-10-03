@@ -2,22 +2,23 @@
 .lading-fondo{
     margin:0;
     padding: 0;
-    background-size:120% 100vh;
+    background-size:120% 100%;
     background-repeat:no-repeat;
 }
 
 .lading-container{
   background-image: linear-gradient(to right, #4343436c 0%, rgba(0, 0, 0, 0.685) 100%);
-     display: flex;
+    display: flex;
     flex-direction: column;
     width:38%;
     height:100vh;
-    gap:10vh;
+    gap:10px;
     animation-name: ulrHome;
     animation-duration: 1.5s;
     animation-iteration-count:initial;
     
 }
+
 
 @keyframes ulrHome {
     0% {
@@ -69,3 +70,16 @@
     color:#fff;
 }
 
+
+
+@media (max-width:831px){
+  .lading-container{
+    width:50%;
+  }
+  .lading-descriptions{
+    min-height:200px;
+    margin:0;
+    min-width:200px;
+    background-color:rgba(0, 0, 0, 0.486);
+  }
+}

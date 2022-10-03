@@ -8,7 +8,7 @@ import Navbar from "../Nav/navbar";
 import homeStyle  from './home.css'
 import Loading from "../loading/loading";
 import Cards from "../Cards/cards";
-// import { animateScroll as scroll} from "react-scroll";
+import { animateScroll as scroll} from "react-scroll";
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -70,10 +70,10 @@ function handlerActiveF(e) {
   }
 
     //  boton  redirigiendo al top de la pag
-// function onClickUp() {
-//   const scrollType = {   duration:2000,   delay: 50,   smooth: true,  offset: -10,};
-//      scroll.scrollTo(false, scrollType);
-// }
+function onClickUp() {
+  const scrollType = {   duration:2000,   delay: 50,   smooth: true,  offset: -10,};
+     scroll.scrollTo(false, scrollType);
+}
 
 function reload(e) {
     e.preventDefault()
@@ -163,10 +163,10 @@ function previousPage(){
             }
           
             {/* button arrow */}
-        {/* {   
+        {   
            all.length > 0 && 
              <button onClick={()=> onClickUp()}className="button-top"></button>
-        } */}
+        }
         <button onClick={(e)=> reload(e)} className="button-clear">Clear filters</button>            
 
     </div>

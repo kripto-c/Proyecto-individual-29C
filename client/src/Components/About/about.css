@@ -3,20 +3,21 @@
    justify-content: space-evenly;
    align-items: center;
    flex-direction: column;
-   height:100vh;
+   height:110vh;
    background-image:url(https://i.pinimg.com/originals/fa/c5/10/fac510db7a07e258fa398b1d166b0599.png);
    background-repeat: no-repeat;
    background-size:100% 100%;
    animation-name: title;
    animation-duration: 3s;
+   min-width:605px;
 }
 
 .card-about{
-      width:76%;
+      width:80%;
      background-color:rgba(0, 0, 0, 0.76);
      border-radius:10px;
-     height:80vh;
-     min-width:714px;
+     height:110vh;
+     min-width:605px;
 }
 
 .card-description{
@@ -34,11 +35,6 @@
     font-size:30px;
 }
 
-/* .card-about-img{
-     align-self: flex-end;
-     width:7rem;
-     height:20vh;
-} */
 
 .card-p{
     width:85%;
@@ -128,4 +124,8 @@
 .linkedin:hover{
      color:rgb(48, 48, 247);
      text-shadow: none;
+}
+
+@media (min-width:712px){
+    
 }

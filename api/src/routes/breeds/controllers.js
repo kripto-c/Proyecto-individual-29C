@@ -5,26 +5,27 @@ const axios = require("axios");
 /////////////////////////////////////////////
    // trae la info de la api
 async function getInfoApi() {
-  const ulr = await axios.get(`https://api.thedogapi.com/v1/breeds`);
-  const dataApi = await ulr.data.map((e) => {
-    let height_data = e.height.metric.split("-");
-    let weight_space = e.weight.metric.replace(/ /g, '');
-    let [wmin, wmax ] = weight_space.split("-");
-    let life = e.life_span.replace("years", "");
-    let life_span_min = life.split("-")[0]; 
-   let life_span_max = life.split("-")[1]; 
+    const ulr = await axios.get(`https://api.thedogapi.com/v1/breeds`);
+    const dataApi = await ulr.data.map((e) => {
+      let height_data = e.height.metric.split("-");
+      let weight_space = e.weight.metric.replace(/ /g, '');
+      let [wmin, wmax ] = weight_space.split("-");
+      let life = e.life_span.replace("years", "");
+      let life_span_min = life.split("-")[0]; 
+     let life_span_max = life.split("-")[1]; 
+  
+      return {
+        id: e.id,
+        name: e.name,
+        height:{min:height_data[0] , max:height_data[1]},
+        weight:{min: !isNaN(wmin) ? wmin : 0, max:!isNaN(wmax) ? wmax : 0},
+        temperament: e.temperament,
+        life_span:{min: life_span_min, max: life_span_max},
+        img: e.image.url,
+      };
+    });
+    return dataApi;
 
-    return {
-      id: e.id,
-      name: e.name,
-      height:{min:height_data[0] , max:height_data[1]},
-      weight:{min: !isNaN(wmin) ? wmin : 0, max:!isNaN(wmax) ? wmax : 0},
-      temperament: e.temperament,
-      life_span:{min: life_span_min, max: life_span_max},
-      img: e.image.url,
-    };
-  });
-  return dataApi;
 }
    // trae la info de db
 async function getDBInfo() {

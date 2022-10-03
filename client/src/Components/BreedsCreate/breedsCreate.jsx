@@ -57,11 +57,14 @@ function handleChange(e) {
 }
 
 function handlerSelect(e) {
-        setInput({
-           ...input,
-           temperament:[...input.temperament, e.target.value]
-        })
-          
+   if(input.temperament.includes(e.target.value)){
+       alert(`you already added this temperament`)
+   }
+   
+   setInput({
+      ...input,
+      temperament:[...input.temperament, e.target.value]
+   })  
 }
 
 async function handlerSubmit(e) {
@@ -208,7 +211,8 @@ if (input.success) {
             <li className="temp-title">selected temperaments</li>
             <br />
             {
-          input.temperament?.map(e=><li className="temp-li"><a onClick={a=> deleteListTemps(a)} id={e} className="temp-link">{e}</a></li>            
+          input.temperament?.map(e=><li className="temp-li" key={e} ><a onClick={a=> deleteListTemps(a)} id={e} className="temp-link">{e}</a></li>
+                    
           )
          }</ul>   
         </div>
