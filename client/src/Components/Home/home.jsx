@@ -17,7 +17,7 @@ export default function Home() {
       // llamado del estado numpage esto guardara el numero de pag del  la ultima que pagVisitada
     let numPagState =  useSelector(state => state.numPag);
     //  filtramos las razas que esten seteadas en  null
-    const all = allBreeds.filter(e=> e !== null)
+    // const allBreeds = allBreeds.filter(e=> e !== null)
  
     const [order, setOrder]= useState("");
    const [currentPage, setCurrentPage] = useState(numPagState  == 0  ? 1 : numPagState);
@@ -104,7 +104,7 @@ function previousPage(){
             <div className="nav-filters">
            <Navbar setpage={setCurrentPage}/>
            {            
-          activeFiltro && all.length > 0 ? 
+          activeFiltro && allBreeds.length > 0 ? 
          <>
          <button className="buton_filtro disable" disabled>filtered Search</button>
            <div className="filter-container">
@@ -153,7 +153,7 @@ function previousPage(){
         </div>
 
          {  
-      all.length > 0 ? <Paginado breedsPerPage={breedsPerPage} allBreds={all.length} paginado={paginado} dispatch={dispatch} act={numPagState.length == 0 ? 0 : numPagState} previousPage={previousPage} followingPage={followingPage} active={active} setActive={setActive}/> : <Loading/>
+      allBreeds.length > 0 ? <Paginado breedsPerPage={breedsPerPage} allBreds={allBreeds.length} paginado={paginado} dispatch={dispatch} act={numPagState.length == 0 ? 0 : numPagState} previousPage={previousPage} followingPage={followingPage} active={active} setActive={setActive}/> : <Loading/>
              
            }
    
@@ -164,7 +164,7 @@ function previousPage(){
           
             {/* button arrow */}
         {   
-           all.length > 0 && 
+           allBreeds.length > 0 && 
              <button onClick={()=> onClickUp()}className="button-top"></button>
         }
         <button onClick={(e)=> reload(e)} className="button-clear">Clear filters</button>            
