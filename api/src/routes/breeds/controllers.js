@@ -44,7 +44,7 @@ async function getInfoApi() {
     if (error?.response?.status === 429) {
       throw new Error('Too many requests')
     } else {
-      console.error('Error:', error?.response?.status)
+      console.error('Error: -->getInfoApi', error?.response?.status)
       throw error
     }
   }
@@ -108,7 +108,7 @@ async function getBreeds(req, res) {
         })
       )
   } catch (error) {
-    res?.status(400)?.send({ data: error + '' })
+    res?.status(400)?.send({ data: error + '-->getBreeds' })
   }
 }
 
@@ -135,7 +135,7 @@ async function breedForId(req, res) {
       ? res?.send(responds)
       : res?.status(404)?.send(`no found id ${idRaza}`)
   } catch (error) {
-    res?.status(404)?.json({ data: error + '' })
+    res?.status(404)?.json({ data: error + '-->breedForId' })
   }
 }
 
