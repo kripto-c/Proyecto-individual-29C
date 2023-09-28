@@ -15,17 +15,19 @@ async function getInfoApi() {
         let life = e.life_span.replace('years', '')
         let life_span_min = life.split('-')[0]
         let life_span_max = life.split('-')[1]
-        let dogImageUrl
+        let dogImageUrl = ''
 
         if (e?.reference_image_id) {
-          const dogApiResponseimg = await axios.get(
-            `https://api.thedogapi.com/v1/images/${e?.reference_image_id}`
-          )
-          if (dogApiResponseimg?.data?.url) {
-            dogImageUrl = dogApiResponseimg?.data?.url
-            return
+          try {
+            const dogApiResponseimg = await axios.get(
+              `https://api.thedogapi.com/v1/images/${e?.reference_image_id}`
+            )
+            if (dogApiResponseimg?.data?.url) {
+              dogImageUrl = dogApiResponseimg?.data?.url
+            }
+          } catch (imageError) {
+            console.error('Error fetching dog image:', imageError)
           }
-          dogImageUrl = false
         }
 
         return {
@@ -38,7 +40,7 @@ async function getInfoApi() {
           },
           temperament: e.temperament,
           life_span: { min: life_span_min, max: life_span_max },
-          img: dogImageUrl ? dogImageUrl : '', // Agregamos la URL de la imagen de Cat API a la propiedad "img"
+          img: dogImageUrl,
         }
       })
     )
@@ -53,6 +55,7 @@ async function getInfoApi() {
     }
   }
 }
+
 // trae la info de db
 async function getDBInfo() {
   const data = await Breeds.findAll({
