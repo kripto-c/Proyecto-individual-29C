@@ -88,7 +88,7 @@ async function getBreeds(req, res) {
     const breedsResponds = await getAllBreeds()
     // const dbInfo = await getDBInfo();
     if (name) {
-      const responds = breedsResponds.filter(d =>
+      const responds = breedsResponds?.filter(d =>
         d.name.toLowerCase().includes(name.toLowerCase())
       )
       responds.length > 0
@@ -97,6 +97,7 @@ async function getBreeds(req, res) {
     } else
       res.send(
         breedsResponds.map(e => {
+          console.log(e)
           return {
             id: e.id,
             name: e.name,
