@@ -86,6 +86,7 @@ async function getBreeds(req, res) {
   const { name } = req.query
   try {
     const breedsResponds = await getAllBreeds()
+    console.log(breedsResponds)
     // const dbInfo = await getDBInfo();
     if (name) {
       const responds = breedsResponds?.filter(d =>
@@ -97,7 +98,6 @@ async function getBreeds(req, res) {
     } else
       res.send(
         breedsResponds.map(e => {
-          console.log(e)
           return {
             id: e.id,
             name: e.name,
