@@ -41,7 +41,7 @@ async function getInfoApi() {
 
     return dataApi
   } catch (error) {
-    if (error.response.status === 429) {
+    if (error?.response?.status === 429) {
       throw new Error('Too many requests')
     } else {
       console.error('Error:', error.response.status)
