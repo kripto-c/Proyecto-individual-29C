@@ -21,7 +21,11 @@ async function getInfoApi() {
           const dogApiResponseimg = await axios.get(
             `https://api.thedogapi.com/v1/images/${e?.reference_image_id}`
           )
-          dogImageUrl = dogApiResponseimg?.data?.url
+          if (dogApiResponseimg?.data?.url) {
+            dogImageUrl = dogApiResponseimg?.data?.url
+            return
+          }
+          dogImageUrl = false
         }
 
         return {
